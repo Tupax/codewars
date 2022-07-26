@@ -1,0 +1,37 @@
+<?php
+
+// https://www.codewars.com/kata/5906436806d25f846400009b
+// You will get an odd integer n (>= 3) and your task is to draw an X. Each line is separated with \n.
+// Use the following characters: ■ □ 
+// For Ruby, Crystal and PHP: whitespace and o
+
+
+function x(int $n): string {
+	
+    //$n indica la cantidad de 3 lineas y el ancho de cada linea.
+    
+    $middle = round($n/2);
+
+    // for ($i=0; $i < $n; $i++) { 
+    //     for
+    // }
+
+
+
+    
+    return ''; // Have fun :D
+}
+
+
+
+
+echo "Expected Output:\r\n";
+echo("o o\n o \no o");
+echo "\n\n You returned:\r\n\n";
+echo (x(3));
+
+echo "\n\nExpected Output:\r\n";
+echo("o   o\n o o \n  o  \n o o \no   o");
+echo "\n\n You returned:\r\n\n";
+echo (x(5));
+
