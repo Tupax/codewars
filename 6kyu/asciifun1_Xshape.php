@@ -10,30 +10,30 @@ function x(int $n): string {
 	
     //$n indica la cantidad de 3 lineas y el ancho de cada linea.
     
-    $xMiddle = round($n/2);
-    $xMiddleSpace = round($n/2,0,PHP_ROUND_HALF_DOWN);
-
-    $lvl = '';
-    $space = $n -2;
+    $middle = round($n/2,0,PHP_ROUND_HALF_DOWN);
+    $draw = '';
     for ($i=0; $i < $n; $i++) { 
         for($j=0; $j<$n; $j++) {
-            if ($i != $xMiddleSpace){
-                // $space 
-                $lvl .= "-";
-            } else {
-                if($j != $xMiddleSpace){
-
-                    $lvl .= " ";
-                } else {
-                    $lvl .= "o";
+            if ($i != $middle){
+                $distfromcenter = abs($middle-$i);
+                if(($j+$distfromcenter==$middle) || ($j-$distfromcenter)==$middle){
+                    $draw .= "o";
+                } 
+                else{
+                    $draw .= " ";
                 }
+            } else {
+                if($j != $middle){
 
+                    $draw .= " ";
+                } else {
+                    $draw .= "o";
+                }
             }
         }
-        $lvl.="\n";
+        if ($i<$n-1)$draw.="\n";
     }
-
-    return $lvl;
+    return $draw;
 }
 
 
@@ -49,3 +49,18 @@ echo("o   o\n o o \n  o  \n o o \no   o");
 echo "\n\nYou returned:\r\n\n";
 echo (x(5));
 
+
+// Other options
+// function x(int $n): string {
+//     $str = '';
+  
+//     for ($i = 0; $i < $n; $i++) {
+//         for ($j = 0; $j < $n; $j++) {
+//             $str .= (($i === $j) || ($n - 1 - $i === $j)) ? 'o' : ' ';
+//         }
+//         $str .= "\n";
+//     }
+    
+    
+//     return substr($str, 0, -1);
+//   }
