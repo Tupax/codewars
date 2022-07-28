@@ -11,6 +11,11 @@
 
 // $node->getNext();
 // Note: do NOT mutate the nodes!
+class Node{
+  public function getNext(){
+    return 0;
+  }
+}
 
 
 function loop_size(Node $n): int {
